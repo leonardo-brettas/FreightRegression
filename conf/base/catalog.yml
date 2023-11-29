@@ -1,0 +1,51 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+prices:
+  type: pandas.ExcelDataset
+  filepath: data/01_raw/prices.xlsx
+  load_args:
+    sheet_name: Mapa de Alocação
+
+distances:
+  type: pandas.ExcelDataset
+  filepath: data/01_raw/dist.xlsx
+  load_args:
+    sheet_name: Freight
+
+pre_processed_distances:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/pre_processed_distances.csv
+
+pre_processed_prices:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/pre_processed_prices.csv
+
+pre_processed_regresssion_table:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/regression_table.csv
+
+regression_table:
+  type: pandas.CSVDataset
+  filepath: data/04_feature/regression_table.csv
+
+regression_table_train:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/regression_table_train.csv
+
+regression_table_test:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/regression_table_test.csv
+
+regression_table_train_target:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/regression_table_train_target.csv
+
+regression_table_test_target:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/regression_table_test_target.csv
+
+linear_regression_model:
+  type: pickle.PickleDataset
+  filepath: data/06_models/linear_regression_model.pkl
